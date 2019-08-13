@@ -1,0 +1,10 @@
+variables = model._model_json['output']['variable_importances']['variable']
+scaled_importance = model._model_json['output']['variable_importances']['scaled_importance']
+import itertools
+top10_values = list(itertools.islice(scaled_importance, 10)) 
+top10_vars =  list(itertools.islice(variables, 10)) 
+varimp_table = pd.DataFrame(
+    {'variable': top10_vars,
+     'scaled_importance': top10_values
+    })
+display(varimp_table)
