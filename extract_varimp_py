@@ -1,4 +1,4 @@
-def varimp_display (model_name, n_features, spark=True):
+def varimp_display (model_name, n_features):
   variables = best_gbm1._model_json['output']['variable_importances']['variable']
   scaled_importance = best_gbm1._model_json['output']['variable_importances']['scaled_importance']
   import itertools
