@@ -1,1 +1,10 @@
-
+def varimp_display (model_name, n_features, spark=True):
+  variables = best_gbm1._model_json['output']['variable_importances']['variable']
+  scaled_importance = best_gbm1._model_json['output']['variable_importances']['scaled_importance']
+  import itertools
+  topn_values = list(itertools.islice(scaled_importance, n_features)) 
+  topn_vars =  list(itertools.islice(variables, n_features)) 
+  varimp_table = pd.DataFrame(
+    {'variable': topn_vars,
+     'scaled_importance': topn_values
+    })
